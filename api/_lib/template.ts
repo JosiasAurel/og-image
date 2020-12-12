@@ -176,6 +176,10 @@ export function getHtml(parsedReq: ParsedRequest) {
         ${getCss(theme, fontSize)}
     </style>
     <body>
+<div>${images.map((img, i) =>
+                    getPlusSign(i) + getImage(img, widths[i], heights[i])
+                ).join('')}
+</div>
          <div class="pattern-dots-md">
      <span class="n"><h2>Josias Aurel</h2></span>
     <span><h2> ${emojify(
