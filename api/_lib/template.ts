@@ -100,7 +100,69 @@ function getCss(theme: string, fontSize: string) {
         font-style: normal;
         color: ${foreground};
         line-height: 1.8;
-    }`;
+    }
+body {
+    font-size: 15pt;
+    background-color: #E3E3E3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --ogi: 4px;
+}
+
+h2 {
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  font-size: 15px;
+  margin: var(--ogi);
+  background-color: #fe0ab9;
+  margin-right: 210px;
+  color: #fefe08;
+  margin-left: 20px;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background: linear-gradient(-45deg,#FF007C,  #05febf);
+  border-radius: 5px;
+  margin: var(--ogi);
+  position: relative;
+  top: 30px;
+  box-shadow: 0 0 8px 10px white;
+}
+
+img {
+  max-width: 80px;
+  margin: var(--ogi);
+}
+
+.i {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.at {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.at > img {
+  max-width: 20px;
+}
+
+.patter-dots-sm {
+  background-color: white !important;
+}
+`;
 }
 
 export function getHtml(parsedReq: ParsedRequest) {
@@ -114,19 +176,21 @@ export function getHtml(parsedReq: ParsedRequest) {
         ${getCss(theme, fontSize)}
     </style>
     <body>
-        <div>
-            <div class="spacer">
-            <div class="logo-wrapper">
-                ${images.map((img, i) =>
-                    getPlusSign(i) + getImage(img, widths[i], heights[i])
-                ).join('')}
-            </div>
-            <div class="spacer">
-            <div class="heading">${emojify(
+         <div class="pattern-dots-md">
+     <span class="n"><h2>Josias Aurel</h2></span>
+    <span><h2> ${emojify(
                 md ? marked(text) : sanitizeHtml(text)
-            )}
-            </div>
-        </div>
+            )}</h2> </span>
+     <span class="i">
+       <span class="at">
+         <img src="https://josiasaurel.tech/github.png" alt="" />
+         <img src="https://josiasaurel.tech/twitter.png" alt="" />
+         <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1592752137870/scHk9tTaA.png?auto=compress" alt="" />
+         <img src="https://d2fltix0v2e0sb.cloudfront.net/dev-black.png" alt="" />
+       </span>
+       <img src="https://josiasaurel.tech/josias-profile.png" alt="" /></span>
+   </div>
+            
     </body>
 </html>`;
 }
